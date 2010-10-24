@@ -5,14 +5,12 @@ try {
     $dbh = new PDO('sqlite:todo.db3');
     
     // query and retrieve pending items
-    $sth = $dbh->query("SELECT * FROM items WHERE status = '1' 
-       ORDER BY due DESC, priority DESC");
+    $sth = $dbh->query("SELECT * FROM items WHERE status = '1' ORDER BY due DESC, priority DESC");
     $pending = $sth->fetchAll();
     $sth = null;
     
     // query and retrieve completed items
-    $sth = $dbh->query("SELECT * FROM items WHERE status = '0' 
-       ORDER BY due DESC, priority DESC");
+    $sth = $dbh->query("SELECT * FROM items WHERE status = '0' ORDER BY due DESC, priority DESC");
     $complete = $sth->fetchAll();
     unset($dbh);
 } catch (PDOException $e) {
@@ -53,12 +51,9 @@ try {
          <?php echo date('d M Y', $p['due']); ?></td>
       <td class="<?php echo $class; ?>">
          <?php echo $priorities[$p['priority']]; ?></td>
-      <td><a href="done.php?id=
-         <?php echo (int) $p['id']; ?>">Mark as done</a> | </td>
-      <td><a href="form.php?id=
-        <?php echo (int) $p['id']; ?>">Change</a> | </td>
-      <td><a href="delete.php?id=
-         <?php echo (int) $p['id']; ?>">Remove</a></td>
+      <td><a href="done.php?id=<?php echo (int) $p['id']; ?>">Mark as done</a> | </td>
+      <td><a href="form.php?id=<?php echo (int) $p['id']; ?>">Change</a> | </td>
+      <td><a href="delete.php?id=<?php echo (int) $p['id']; ?>">Remove</a></td>
     </tr>
     
   <?php } ?>
@@ -96,8 +91,7 @@ try {
          <?php echo date('d M Y', $c['due']); ?></td>
       <td class="<?php echo $class; ?>">
          <?php echo date('d M Y', $c['complete']); ?></td>
-      <td><a href="delete.php?id=
-         <?php echo (int) $c['id']; ?>">Remove</a></td>
+      <td><a href="delete.php?id=<?php echo (int) $c['id']; ?>">Remove</a></td>
     </tr>
     
   <?php } ?>

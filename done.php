@@ -9,8 +9,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         // update item record
         // change status field
         $now = mktime();
-        $dbh->exec("UPDATE items SET status = '0', 
-           complete = '$now' WHERE id = '$id'");
+        $dbh->exec("UPDATE items SET status = '0',complete = '$now' WHERE id = '$id'");
         
         // redirect to index page
         header('Location: index.php');
