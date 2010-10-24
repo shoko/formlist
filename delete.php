@@ -4,7 +4,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = (int) $_GET['id'];
     try {
         // connect to database
-        $dbh = new PDO('sqlite:../../db/todo.db3');
+        $dbh = new PDO('sqlite:todo.db3');
         
         // delete item
         $dbh->exec("DELETE FROM items WHERE id = '$id'");

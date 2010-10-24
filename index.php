@@ -2,7 +2,7 @@
 require 'include.php';
 try {
     // connect to database
-    $dbh = new PDO('sqlite:../../db/todo.db3');
+    $dbh = new PDO('sqlite:todo.db3');
     
     // query and retrieve pending items
     $sth = $dbh->query("SELECT * FROM items WHERE status = '1' 
